@@ -3,6 +3,7 @@
 A collection of scripts used from GSECARS.
 
 ## List of scripts
+- GenX3 for RCC
 
 <br />
 

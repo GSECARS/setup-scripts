@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# Check for elevated privileges
+if [ "$EUID" -ne 0 ]; then
+    echo "This script requires elevation. Please run as root."
+    exit
+fi
+
+echo -ne "
+------------------------------
+MOUNT NETWORK SHARE USING NFS
+------------------------------
+
+"
+
+# Get the share path
+while true
+do
+  read -r -p "Share path: " share_path
+  if [ -z "$share_path" ]; then
+    echo  "Invalid input..."
+  else
+    break
+  fi
+done
+
+# Get the mount path
+while true
+do
+read -r -p "Mount path: " mount_path
+  if [ -z "$mount_path" ]; then
+    echo  "Invalid input..."
+  else
+    break
+  fi
+done
+
+# Mount the network share using nfs
+mount -t nfs "$share_path" "$mount_path"

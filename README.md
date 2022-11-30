@@ -6,7 +6,8 @@ A collection of scripts used from GSECARS.
 - GenX3 for RCC
 - Pilatus1M 3X
 - Pilatus1M 3S
-- Cifs mount for SMB shares
+- CIFS mount for SMB shares
+- NFS mount
 
 <br />
 

@@ -1,0 +1,66 @@
+#!/bin/bash
+
+# Check for elevated privileges
+if [ "$EUID" -ne 0 ]; then
+    echo "This script requires elevation. Please run as root."
+    exit
+fi
+
+echo -ne "
+---------------------------------------
+Prepare Pilatus1M 3X for use in 13-ID-D
+---------------------------------------
+
+"
+
+# Mount cars6
+echo "Mounting cars6"
+source "/usr/local/bin/mount_cars6_gse"
+
+# Mount corvette
+echo -e "Mounting corvette \n"
+source "/usr/local/bin/mount_corvette"
+
+# Remove the old soft link
+echo "Removing soft link"
+rm /DAC
+
+# Get user input for year and cycle
+while true
+do
+    echo -n "Please provide the year: "
+    read -r Year
+
+    echo -n "Please provide the cycle: "
+    read -r Cycle
+
+    path="/cars6/Data/dac_user/${Year}/IDD_${Year}-${Cycle}/"
+
+    read -r -p "${path} Is this the correct path? [Y/n] " selection
+
+    if [ -z "$selection" ]; then
+        selection="y"
+    fi
+
+    case $selection in
+        [yY][eE][sS]|[yY])
+            break
+            ;;
+        [nN][oO]|[nN])
+            ;;
+        *)
+            echo "Invalid input..."
+            ;;
+    esac
+done
+
+# Create the soft link
+ln -s "$path" /DAC
+
+# Backup grimsel file and change to 13IDD
+rm /etc/grimsel_dectris.conf.bak2
+mv /etc/grimsel_dectris.conf /etc/grimsel_dectris.conf.bak2
+cp /etc/grimsel_dectris.conf.13idd /etc/grimsel_dectris.conf
+
+# Restart grimsel
+service grimsel restart

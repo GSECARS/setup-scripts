@@ -1,0 +1,61 @@
+#!/bin/bash
+
+# Check for elevated privileges
+if [ "$EUID" -ne 0 ]; then
+    echo "This script requires elevation. Please run as root."
+    exit
+fi
+
+echo -ne "
+------------------------------------------
+Prepare Pilatus1M 3S for use in 13-BM/ID-D
+------------------------------------------
+
+"
+
+# Mount cars6
+echo "Mounting cars6"
+source "/usr/local/bin/mount_cars6_gse"
+
+# Mount corvette
+echo -e "Mounting corvette \n"
+source "/usr/local/bin/mount_corvette"
+
+# Remove the old soft link
+echo "Removing soft link"
+rm /DAC
+
+# Get user input for year and cycle
+while true
+do
+    echo -n "Please provide the beamline e.g. 'BMD': "
+    read -r Beamline
+
+    echo -n "Please provide the year: "
+    read -r Year
+
+    echo -n "Please provide the cycle: "
+    read -r Cycle
+
+    path="/cars6/Data/dac_user/${Year}/${Beamline}_${Year}-${Cycle}/"
+
+    read -r -p "${path} Is this the correct path? [Y/n] " selection
+
+    if [ -z "$selection" ]; then
+        selection="y"
+    fi
+
+    case $selection in
+        [yY][eE][sS]|[yY])
+            break
+            ;;
+        [nN][oO]|[nN])
+            ;;
+        *)
+            echo "Invalid input..."
+            ;;
+    esac
+done
+
+# Create the soft link
+ln -s "$path" /DAC

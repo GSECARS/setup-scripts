@@ -4,6 +4,8 @@ A collection of scripts used from GSECARS.
 
 ## List of scripts
 - GenX3 for RCC
+- Pilatus1M 3X
+- Pilatus1M 3S
 
 <br />
 
@@ -11,10 +13,10 @@ A collection of scripts used from GSECARS.
 
 ---
 
-setup-scripts is distributed under the MIT License. You should have 
-received a copy of the MIT License this collection of scripts.  If not, see 
+setup-scripts is distributed under the MIT License. You should have received 
+a copy of the MIT License with this collection of scripts.  If not, see 
 <https://opensource.org/licenses/MIT>.
 
 <br />
 
-[Christofanis Skordas](mailto:skordasc@uchicago.edu) - Last updated: 29-Nov-2022 
+[Christofanis Skordas](mailto:skordasc@uchicago.edu) - Last updated: 30-Nov-2022 

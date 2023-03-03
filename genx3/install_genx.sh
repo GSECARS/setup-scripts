@@ -59,9 +59,9 @@ if [ -z "$pypi_packages" ]; then
 fi
 
 # get custom model
-read -rp "Enter custom model path, leave empty for default (/project2/jstubbs1/data/chris/genx3/sxrd_uanis_nopseudo.py): " custom_model
+read -rp "Enter custom model path, leave empty for default (sxrd_uanis_nopseudo.py): " custom_model
 if [ -z "$custom_model" ]; then
-    custom_model="/project2/jstubbs1/data/chris/genx3/sxrd_uanis_nopseudo.py"
+    custom_model="sxrd_uanis_nopseudo.py"
 fi
 
 # Start time

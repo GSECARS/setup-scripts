@@ -1,0 +1,26 @@
+#!/bin/sh
+#SBATCH --job-name=foo
+#SBATCH --output=foo.out
+#SBATCH --error=foo.err
+#SBATCH --time=00:05:00
+#SBATCH --mem-per-cpu=500M
+##SBATCH --nodes=2
+##SBATCH --ntasks-per-node=16
+#SBATCH --tasks=64
+#SBATCH --constraint=ib
+##SBATCH --mail-type=BEGIN,END,FAIL
+
+# Load anaconda module
+module load
+source
+
+# Activate genx environment
+conda activate
+
+echo "job started at `date`"
+echo "-----------------------"
+
+mpirun genx --mpi --mgen=10000 --km=0.8 --kr=0.6 --error /project2/jstubbs1/data/chris/foo.hgx /project2/jstubbs1/data/chris/foo_out.hgx
+
+echo "-----------------------"
+echo "job finished at `date`"

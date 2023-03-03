@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Load anaconda module
+module load
+source
+
+# Activate genx environment
+conda activate
+
+# Start genx3
+genx

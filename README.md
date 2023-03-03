@@ -1,9 +1,9 @@
 <h1 align="center">setup-scripts</h1>
 
-A collection of scripts used from GSECARS.
+A collection of scripts used at GSECARS.
 
-## List of scripts
-- GenX3 for RCC
+## Table of Contents
+- [GenX3 for RCC](https://github.com/GSECARS/setup-scripts/blob/main/genx3/genx.md)
 - Pilatus1M 3X
 - Pilatus1M 3S
 - CIFS mount for SMB shares

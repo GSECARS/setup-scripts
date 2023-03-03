@@ -20,6 +20,11 @@ General Access System from RCC.
   ```
   make clean
   ```
+  
+## After installation
+Make sure to move the ``start_genx3.sh`` file to the directory you want to run it from. With RCC we can't add any files
+to the ``/usr/local/bin`` directory, so you will always need to navigate to the executable file (or a link to that) in
+order to run the application.
 
 <br />
 

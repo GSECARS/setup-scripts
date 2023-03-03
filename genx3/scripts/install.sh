@@ -55,8 +55,18 @@ pip install -U pip setuptools
 # Install pypi packages
 pip install $pypi_packages
 
-# Add custom model
-cp $custom_model_path "$HOME/.conda/envs/$environment_name/lib/python$python_version/site-packages/genx/models"
+# Add custom models
+models_dir="$HOME/.conda/envs/$environment_name/lib/python$python_version/site-packages/genx/models"
+if [ -f "$custom_model_path" ]; then
+  # Copy the model file
+  cp "$custom_model_path" "$models_dir"
+elif [ -d "$custom_model_path" ]; then
+  # Copy the directory of models
+  cp -r "$custom_model_path/*" "$models_dir"
+else
+  # No custom models message!
+  echo "No custom models added!"
+fi
 
 # Elapsed time
 elapsed=$SECONDS

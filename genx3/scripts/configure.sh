@@ -83,9 +83,9 @@ else
 fi
 
 # [ Custom GenX3 Model ]
-read -rp "Enter custom GenX3 model path, leave empty for default (models/sxrd_uanis_nopseudo.py): " custom_model_path
+read -rp "Enter custom GenX3 model directory or file path, leave empty for default (models): " custom_model_path
 if [ -z "$custom_model_path" ]; then
-    custom_model_path="models/sxrd_uanis_nopseudo.py"
+    custom_model_path="models"
 fi
 
 # Add custom GenX3 model path to the config file

@@ -20,7 +20,7 @@ conda activate
 echo "job started at `date`"
 echo "-----------------------"
 
-mpirun genx --mpi --mgen=10000 --km=0.8 --kr=0.6 --error /project2/jstubbs1/data/chris/foo.hgx /project2/jstubbs1/data/chris/foo_out.hgx
+mpirun genx --mpi --mgen=10000 --km=0.8 --kr=0.6 --error /project2/jstubbs1/data/chris/foo.gx /project2/jstubbs1/data/chris/foo_out.gx
 
 echo "-----------------------"
 echo "job finished at `date`"

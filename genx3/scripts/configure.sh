@@ -53,9 +53,9 @@ else
 fi
 
 # [ Anaconda Packages ]
-read -rp "Enter anaconda packages, leave empty for default (mpi4py wxpython=4.1.1): " anaconda_packages
+read -rp "Enter anaconda packages, leave empty for default (mpi4py=3.1.2 wxpython=4.1.1): " anaconda_packages
 if [ -z "$anaconda_packages" ]; then
-    anaconda_packages="mpi4py wxpython=4.1.1"
+    anaconda_packages="mpi4py=3.1.2 wxpython=4.1.1"
 fi
 
 # Add anaconda packages to the config file

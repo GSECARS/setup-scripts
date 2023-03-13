@@ -109,7 +109,7 @@ Sample
 '''
 
 import numpy as np
-from genx3 import utils
+from . import utils
 from .lib.physical_constants import r_e
 from .symmetries import SymTrans
 from genx.core.custom_logging import iprint

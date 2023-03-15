@@ -28,4 +28,4 @@ order to run the application.
 
 <br />
 
-[Christofanis Skordas](mailto:skordasc@uchicago.edu) - Last updated: 13-Mar-2022 
+[Christofanis Skordas](mailto:skordasc@uchicago.edu) - Last updated: 15-Mar-2022 
